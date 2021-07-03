@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TriangleTest {
 
     @Test
-    public void area0_0_4_0_0_4__8() {
+    public void area004004is8() {
         Point a = new Point(0, 0);
         Point b = new Point(4, 0);
         Point c = new Point(0, 4);
@@ -18,7 +18,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void area0_0_1_8_4_0__16() {
+    public void area001840is16() {
         Point a = new Point(0, 0);
         Point b = new Point(1, 8);
         Point c = new Point(4, 0);
