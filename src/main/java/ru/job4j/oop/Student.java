@@ -6,6 +6,10 @@ public class Student {
         System.out.println("Tra tra tra");
     }
 
+    public void playMusic(String lyrics) {
+        System.out.println("And I can play a song : " + lyrics);
+    }
+
     public void singSong() {
         System.out.println("I believe I can fly");
     }
@@ -16,5 +20,6 @@ public class Student {
             petya.playMusic();
             petya.singSong();
         }
+        petya.playMusic("Katusha");
     }
 }
