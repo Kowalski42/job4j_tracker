@@ -1,6 +1,6 @@
 package ru.job4j.oop.BallStory;
 
-public static class Ball {
+public class Ball {
     public void rollTo(Wolf wolf) {
     }
     public void rollTo(Fox fox) {
