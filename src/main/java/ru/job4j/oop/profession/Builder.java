@@ -5,10 +5,6 @@ import java.util.GregorianCalendar;
 public class Builder extends Engineer {
     private String mainConstructions;
 
-    public Builder() {
-        super();
-    }
-
     public Builder(String name, String surname, String education, GregorianCalendar birthday) {
         super(name, surname, education, birthday);
     }

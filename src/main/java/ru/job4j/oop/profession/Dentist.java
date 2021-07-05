@@ -5,10 +5,6 @@ import java.util.GregorianCalendar;
 public class Dentist extends Doctor {
     private boolean canMakeImplantation;
 
-    public Dentist() {
-        super();
-    }
-
     public Dentist(String name, String surname, String education, GregorianCalendar birthday) {
         super(name, surname, education, birthday);
     }

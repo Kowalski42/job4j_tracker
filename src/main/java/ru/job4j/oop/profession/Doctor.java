@@ -6,10 +6,6 @@ import java.util.GregorianCalendar;
 
 public class Doctor extends Profession {
 
-    public Doctor() {
-        super();
-    }
-
     public Doctor(String name, String surname, String education, GregorianCalendar birthday) {
         super(name, surname, education, birthday);
     }

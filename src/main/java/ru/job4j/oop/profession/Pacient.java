@@ -8,9 +8,6 @@ public class Pacient {
     private GregorianCalendar birthday;
     private Diagnosis diagnosis;
 
-    public Pacient() {
-    }
-
     public Pacient(String name, String surname) {
         this.name = name;
         this.surname = surname;

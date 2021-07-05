@@ -5,10 +5,6 @@ import java.util.GregorianCalendar;
 public class Surgeon extends Doctor {
     private String specialisation;
 
-    public Surgeon() {
-        super();
-    }
-
     public Surgeon(String name, String surname, String education, GregorianCalendar birthday) {
         super(name, surname, education, birthday);
     }
@@ -20,7 +16,7 @@ public class Surgeon extends Doctor {
     }
 
     public String getSpecialisation() {
-        return this.specialisation;
+        return specialisation;
     }
 
     public boolean operate(Pacient pacient) {

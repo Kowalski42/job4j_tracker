@@ -4,9 +4,6 @@ public class Diagnosis {
     private String name;
     private int id;
 
-    public Diagnosis() {
-    }
-
     public Diagnosis(String name) {
         this.name = name;
     }

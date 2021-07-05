@@ -6,10 +6,6 @@ public class Programmer extends Engineer {
     private String programmingLanguage;
     private int workExperience;
 
-    public Programmer() {
-        super();
-    }
-
     public Programmer(String name, String surname, String education, GregorianCalendar birthday) {
         super(name, surname, education, birthday);
     }
