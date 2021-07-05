@@ -50,19 +50,10 @@ public class License {
             return false;
         }
         License license = (License) o;
-        if ((owner != null && license.owner != null && owner.equals(license.owner))
-                || (owner == null && license.owner == null)) {
-            if ((model != null && license.model != null && model.equals(license.model))
-                    || (model == null && license.model == null)) {
-                if ((code != null && license.code != null && code.equals(license.code))
-                        || (code == null && license.code == null)) {
-                    return (created != null && license.created != null
-                            && created.equals(license.created))
-                            || (created == null && license.created == null);
-                }
-            }
-        }
-        return false;
+        return Objects.equals(owner, license.owner)
+                && Objects.equals(model, license.model)
+                && Objects.equals(code, license.code)
+                && Objects.equals(created, license.created);
     }
 
     @Override
