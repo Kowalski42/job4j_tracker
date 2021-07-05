@@ -1,9 +1,9 @@
 package ru.job4j.pojo;
 
 import static org.hamcrest.Matchers.isEmptyOrNullString;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -28,7 +28,7 @@ public class LicenseTest {
     }
 
     @Test
-    public void noEqName() {
+    public void notEqName() {
         License first = new License();
         first.setCode("audio");
         License second = new License();

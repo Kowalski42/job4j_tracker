@@ -11,22 +11,23 @@ public class Library {
         library[1] = book2;
         library[2] = book3;
         library[3] = book4;
-        for (int index = 0; index < library.length; index++) {
-            System.out.println(library[index].getName() + " - " + library[index].getPageCount());
-        }
-        System.out.println("\nSwap element1 & element4 in library");
+        Library.printAllItems(library);
+        System.out.println(System.lineSeparator() + "Swap element1 & element4 in library");
         Book temp = library[0];
         library[0] = library[3];
         library[3] = temp;
-        for (int index = 0; index < library.length; index++) {
-            System.out.println(library[index].getName() + " - " + library[index].getPageCount());
-        }
-        System.out.println("\nShown only Book.name == \"Clean code\"");
-        for (int index = 0; index < library.length; index++) {
-            Book b = library[index];
-            if (b.getName().equals("Clean code")) {
+        Library.printAllItems(library);
+        System.out.println(System.lineSeparator() + "Shown only Book.name == \"Clean code\"");
+        for (Book b: library) {
+            if ("Clean code".equals(b.getName())) {
                 System.out.println(b.getName() + " - " + b.getPageCount());
             }
+        }
+    }
+
+    public static void printAllItems(Book[] library) {
+        for (Book b: library) {
+            System.out.println(b.getName() + " - " + b.getPageCount());
         }
     }
 }
