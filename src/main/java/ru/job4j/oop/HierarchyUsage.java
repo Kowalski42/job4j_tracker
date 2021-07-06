@@ -2,7 +2,7 @@ package ru.job4j.oop;
 
 public class HierarchyUsage {
     public static void main(String[] args) {
-        /* создаем объекта класса Car. */
+        /* создаем объекта класса Airplane. */
         Car car = new Car();
         /* делаем приведение к типу родителя Transport. */
         Transport tr = car;
@@ -14,6 +14,6 @@ public class HierarchyUsage {
         Car carFromObject = (Car) oCar;
         /* Ошибка в приведении типа. */
         Object bicycle = new Bicycle();
-        //Car cb = (Car) bicycle; // код завершится с ошибок приведения типов ClassCastException
+        //Airplane cb = (Airplane) bicycle; // код завершится с ошибок приведения типов ClassCastException
     }
 }

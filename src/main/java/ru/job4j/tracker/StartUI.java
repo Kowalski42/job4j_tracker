@@ -80,19 +80,15 @@ public class StartUI {
         System.out.println("=== Edit item ====");
         System.out.print("Enter id: ");
         int id;
-        try {
-            id = Integer.parseInt(scanner.nextLine());
-            System.out.print("Enter name: ");
-            String name = scanner.nextLine();
-            Item item = new Item(name);
-            if (tracker.replace(id, item)) {
-                System.out.println("The item has been changed successfully.");
-            } else {
-                System.out.println("Item replacement error. The item with id "
-                        + id + " is not been contains in repository.");
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Incorrect format of input.");
+        id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("The item has been changed successfully.");
+        } else {
+            System.out.println("Item replacement error. The item with id "
+                    + id + " is not been contains in repository.");
         }
     }
 
@@ -100,16 +96,12 @@ public class StartUI {
         System.out.println("=== Delete item ====");
         System.out.print("Enter id: ");
         int id;
-        try {
-            id = Integer.parseInt(scanner.nextLine());
-            if (tracker.delete(id)) {
-                System.out.println("The item has been deleted successfully.");
-            } else {
-                System.out.println("Item delete error. The item with id "
-                        + id + " is not been contains in repository.");
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Incorrect format of input.");
+        id = Integer.parseInt(scanner.nextLine());
+        if (tracker.delete(id)) {
+            System.out.println("The item has been deleted successfully.");
+        } else {
+            System.out.println("Item delete error. The item with id "
+                    + id + " is not been contains in repository.");
         }
     }
 
@@ -117,16 +109,12 @@ public class StartUI {
         System.out.println("=== Find item by id ====");
         System.out.print("Enter id: ");
         int id;
-        try {
-            id = Integer.parseInt(scanner.nextLine());
-            Item item = tracker.findById(id);
-            if (item != null) {
-                System.out.println(item);
-            } else {
-                System.out.println("The item with id " + id + " has not been found.");
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Incorrect format of input.");
+        id = Integer.parseInt(scanner.nextLine());
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("The item with id " + id + " has not been found.");
         }
     }
 
