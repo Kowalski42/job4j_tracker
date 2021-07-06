@@ -9,69 +9,36 @@ public class StartUI {
         while (run) {
             showMenu();
             System.out.print("Select: ");
-            int select = Integer.parseInt(scanner.nextLine());
-            if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
-            } else if (select == 1) {
-                System.out.println("=== Show all items ====");
-                Item[] items = tracker.findAll();
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Хранилище еще не содержит заявок");
-                }
-            } else if (select == 2) {
-                System.out.println("=== Edit item ====");
-                System.out.print("Enter id: ");
-                int id = Integer.parseInt(scanner.nextLine());
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                if (tracker.replace(id, item)) {
-                    System.out.println("Заявка изменена успешно.");
-                } else {
-                    System.out.println("Ошибка замены заявки.");
-                }
-            } else if (select == 3) {
-                System.out.println("=== Delete item ====");
-                System.out.print("Enter id: ");
-                int id = Integer.parseInt(scanner.nextLine());
-                if (tracker.delete(id)) {
-                    System.out.println("Заявка удалена успешно.");
-                } else {
-                    System.out.println("Ошибка удаления заявки.");
-                }
-            } else if (select == 4) {
-                System.out.println("=== Find item by id ====");
-                System.out.print("Enter id: ");
-                int id = Integer.parseInt(scanner.nextLine());
-                Item item = tracker.findById(id);
-                if (item != null) {
-                    System.out.println(item);
-                } else {
-                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
-                }
-            } else if (select == 5) {
-                System.out.println("=== Find items by name ====");
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item[] items = tracker.findByName(name);
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Заявки с именем: " + name + " не найдены.");
-                }
-            } else if (select == 6) {
-                run = false;
+            int select = -1;
+            try {
+                select = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Incorrect format of input.");
+            }
+            switch (select) {
+                case 0:
+                    createNewItem(scanner, tracker);
+                    break;
+                case 1:
+                    showAllItem(tracker);
+                    break;
+                case 2:
+                    editItem(scanner, tracker);
+                    break;
+                case 3:
+                    deleteItem(scanner, tracker);
+                    break;
+                case 4:
+                    findItemById(scanner, tracker);
+                    break;
+                case 5:
+                    findItemByName(scanner, tracker);
+                    break;
+                case 6:
+                    run = false;
+                    break;
+                default:
+                    System.out.println("Please, select in the specified range.");
             }
         }
     }
@@ -85,6 +52,95 @@ public class StartUI {
         System.out.println("Menu:");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
+        }
+    }
+
+    private void createNewItem(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        tracker.add(item);
+        System.out.println("The new item has been added: " + item);
+    }
+
+    private void showAllItem(Tracker tracker) {
+        System.out.println("=== Show all items ====");
+        Item[] items = tracker.findAll();
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("There is no items in repository");
+        }
+    }
+
+    private void editItem(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Edit item ====");
+        System.out.print("Enter id: ");
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            Item item = new Item(name);
+            if (tracker.replace(id, item)) {
+                System.out.println("The item has been changed successfully.");
+            } else {
+                System.out.println("Item replacement error. The item with id "
+                        + id + " is not been contains in repository.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect format of input.");
+        }
+    }
+
+    private void deleteItem(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Delete item ====");
+        System.out.print("Enter id: ");
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+            if (tracker.delete(id)) {
+                System.out.println("The item has been deleted successfully.");
+            } else {
+                System.out.println("Item delete error. The item with id "
+                        + id + " is not been contains in repository.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect format of input.");
+        }
+    }
+
+    private void findItemById(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Find item by id ====");
+        System.out.print("Enter id: ");
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+            Item item = tracker.findById(id);
+            if (item != null) {
+                System.out.println(item);
+            } else {
+                System.out.println("The item with id " + id + " has not been found.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect format of input.");
+        }
+    }
+
+    private void findItemByName(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Find items by name ====");
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("The item(s) with name: " + name + " has not been found.");
         }
     }
 
