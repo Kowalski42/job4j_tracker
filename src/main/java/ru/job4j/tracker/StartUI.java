@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
@@ -9,22 +8,22 @@ public class StartUI {
             int select = input.askInt("Select: ");
             switch (select) {
                 case 0:
-                    createNewItem(input, tracker);
+                    StartUI.createNewItem(input, tracker);
                     break;
                 case 1:
-                    showAllItem(tracker);
+                    StartUI.showAllItem(tracker);
                     break;
                 case 2:
-                    editItem(input, tracker);
+                    StartUI.editItem(input, tracker);
                     break;
                 case 3:
-                    deleteItem(input, tracker);
+                    StartUI.deleteItem(input, tracker);
                     break;
                 case 4:
-                    findItemById(input, tracker);
+                    StartUI.findItemById(input, tracker);
                     break;
                 case 5:
-                    findItemByName(input, tracker);
+                    StartUI.findItemByName(input, tracker);
                     break;
                 case 6:
                     run = false;
@@ -47,7 +46,7 @@ public class StartUI {
         }
     }
 
-    private void createNewItem(Input input, Tracker tracker) {
+    private static void createNewItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
@@ -55,7 +54,7 @@ public class StartUI {
         System.out.println("The new item has been added: " + item);
     }
 
-    private void showAllItem(Tracker tracker) {
+    private static void showAllItem(Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
@@ -67,7 +66,7 @@ public class StartUI {
         }
     }
 
-    private void editItem(Input input, Tracker tracker) {
+    private static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
@@ -80,7 +79,7 @@ public class StartUI {
         }
     }
 
-    private void deleteItem(Input input, Tracker tracker) {
+    private static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
@@ -91,7 +90,7 @@ public class StartUI {
         }
     }
 
-    private void findItemById(Input input, Tracker tracker) {
+    private static void findItemById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ====");
         int id = input.askInt("Enter id: ");
         Item item = tracker.findById(id);
@@ -102,7 +101,7 @@ public class StartUI {
         }
     }
 
-    private void findItemByName(Input input, Tracker tracker) {
+    private static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ====");
         String name = input.askStr("Enter name: ");
         Item[] items = tracker.findByName(name);
