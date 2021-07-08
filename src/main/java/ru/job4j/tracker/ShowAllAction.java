@@ -20,10 +20,9 @@ public class ShowAllAction implements UserAction {
             for (Item item : items) {
                 out.println(item);
             }
-            return true;
         } else {
             out.println("There is no items in repository");
-            return false;
         }
+        return true;
     }
 }

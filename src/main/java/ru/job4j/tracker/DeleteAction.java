@@ -18,11 +18,10 @@ public class DeleteAction implements UserAction {
         int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
             out.println("The item has been deleted successfully.");
-            return true;
         } else {
             out.println("Item delete error. The item with id "
                     + id + " is not been contains in repository.");
-            return false;
         }
+        return true;
     }
 }

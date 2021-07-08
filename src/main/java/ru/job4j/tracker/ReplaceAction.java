@@ -20,11 +20,10 @@ public class ReplaceAction implements UserAction {
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             out.println("The item has been changed successfully.");
-            return true;
         } else {
             out.println("Item replacement error. The item with id "
                     + id + " is not been contains in repository.");
-            return false;
         }
+        return true;
     }
 }

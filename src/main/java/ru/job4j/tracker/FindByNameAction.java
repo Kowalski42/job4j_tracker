@@ -21,10 +21,9 @@ public class FindByNameAction implements UserAction {
             for (Item item : items) {
                 out.println(item);
             }
-            return true;
         } else {
             out.println("The item(s) with name: " + name + " has not been found.");
-            return false;
         }
+        return true;
     }
 }
