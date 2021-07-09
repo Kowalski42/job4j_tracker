@@ -57,7 +57,7 @@ public class StartUITest {
                         + "0. Find item by id" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Find item by id ====" + System.lineSeparator()
-                        + item.toString() + System.lineSeparator()
+                        + item + System.lineSeparator()
                         + "Menu: " + System.lineSeparator()
                         + "0. Find item by id" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()));
@@ -83,8 +83,8 @@ public class StartUITest {
                         + "0. Find items by name" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Find items by name ====" + System.lineSeparator()
-                        + item1.toString() + System.lineSeparator()
-                        + item3.toString() + System.lineSeparator()
+                        + item1 + System.lineSeparator()
+                        + item3 + System.lineSeparator()
                         + "Menu: " + System.lineSeparator()
                         + "0. Find items by name" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()));
@@ -109,8 +109,8 @@ public class StartUITest {
                         + "0. Show all items" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Show all items ====" + System.lineSeparator()
-                        + item1.toString() + System.lineSeparator()
-                        + item2.toString() + System.lineSeparator()
+                        + item1 + System.lineSeparator()
+                        + item2 + System.lineSeparator()
                         + "Menu: " + System.lineSeparator()
                         + "0. Show all items" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()));
