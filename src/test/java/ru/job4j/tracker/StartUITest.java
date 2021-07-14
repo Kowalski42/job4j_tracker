@@ -170,4 +170,66 @@ public class StartUITest {
                 )
         );
     }
+
+    @Test
+    public void whenAddNewItemsAndSortByAscending() {
+        Tracker tracker = new Tracker();
+        Item item1 = tracker.add(new Item(3, "New item3"));
+        Item item2 = tracker.add(new Item(1, "New item1"));
+        Item item3 = tracker.add(new Item(4, "New item4"));
+        Item item4 = tracker.add(new Item(2, "New item2"));
+        tracker.findAll().sort(new SortByAscending());
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAllAction(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu: " + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
+                        + item2 + System.lineSeparator()
+                        + item4 + System.lineSeparator()
+                        + item1 + System.lineSeparator()
+                        + item3 + System.lineSeparator()
+                        + "Menu: " + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()));
+    }
+
+    @Test
+    public void whenAddNewItemsAndSortByDescending() {
+        Tracker tracker = new Tracker();
+        Item item1 = tracker.add(new Item(3, "New item3"));
+        Item item2 = tracker.add(new Item(1, "New item1"));
+        Item item3 = tracker.add(new Item(2, "New item2"));
+        Item item4 = tracker.add(new Item(4, "New item4"));
+        tracker.findAll().sort(new SortByDescending());
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAllAction(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu: " + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
+                        + item4 + System.lineSeparator()
+                        + item1 + System.lineSeparator()
+                        + item3 + System.lineSeparator()
+                        + item2 + System.lineSeparator()
+                        + "Menu: " + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()));
+    }
 }
