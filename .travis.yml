@@ -18,3 +18,9 @@ notifications:
       - sealenochka@mail.ru
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+
+  global:
+
+    - CODECOV_TOKEN="6770abc6-7799-4a44-b9b9-d92950784da2"
