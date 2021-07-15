@@ -93,32 +93,30 @@ public class TrackerTest {
 
     @Test
     public void whenItemsSortedByDescending() {
-        Tracker tracker = new Tracker();
+        List<Item> result = new ArrayList<>();
         Item item1 = new Item(3, "items3");
         Item item2 = new Item(1, "items1");
         Item item3 = new Item(4, "items4");
         Item item4 = new Item(2, "items2");
-        tracker.add(item1);
-        tracker.add(item2);
-        tracker.add(item3);
-        tracker.add(item4);
-        List<Item> result = tracker.findAll();
+        result.add(item1);
+        result.add(item2);
+        result.add(item3);
+        result.add(item4);
         Collections.sort(result, new SortByDescending());
         assertThat(result, is(Arrays.asList(item3, item1, item4, item2)));
     }
 
     @Test
     public void whenItemsSortedByAscending() {
-        Tracker tracker = new Tracker();
+        List<Item> result = new ArrayList<>();
         Item item1 = new Item(3, "items3");
         Item item2 = new Item(1, "items1");
         Item item3 = new Item(4, "items4");
         Item item4 = new Item(2, "items2");
-        tracker.add(item1);
-        tracker.add(item2);
-        tracker.add(item3);
-        tracker.add(item4);
-        List<Item> result = tracker.findAll();
+        result.add(item1);
+        result.add(item2);
+        result.add(item3);
+        result.add(item4);
         Collections.sort(result, new SortByAscending());
         assertThat(result, is(Arrays.asList(item2, item4, item1, item3)));
     }
