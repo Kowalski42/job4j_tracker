@@ -7,7 +7,8 @@ import java.util.GregorianCalendar;
 public class Doctor extends Profession {
     private int levelOfPsychoStrength;
 
-    public Doctor(String name, String surname, String education, GregorianCalendar birthday, int levelOfPsychoStrength) {
+    public Doctor(String name, String surname, String education,
+                  GregorianCalendar birthday, int levelOfPsychoStrength) {
         super(name, surname, education, birthday);
         this.levelOfPsychoStrength = levelOfPsychoStrength;
     }
