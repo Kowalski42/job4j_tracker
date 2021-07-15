@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.*;
 
 public class Tracker {
-    private final List<Item> items = new ArrayList<Item>();
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
     public Item add(Item item) {
@@ -15,7 +15,7 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return new ArrayList<>(items);
     }
 
     public Item findById(int id) {
@@ -25,9 +25,9 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> newItems = new ArrayList<>();
-        for (int i = 0; i < items.size(); i++) {
-            if (key.equals(items.get(i).getName())) {
-                newItems.add(items.get(i));
+        for (Item i: items) {
+            if (key.equals(i.getName())) {
+                newItems.add(i);
             }
         }
         return newItems;

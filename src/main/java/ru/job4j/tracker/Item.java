@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public class Item {
+public class Item implements Cloneable {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
@@ -46,5 +46,10 @@ public class Item {
     public String toString() {
         return "Item{" + "id=" + id + ", name='" + name + '\''
                 + ", created=" + created.format(Item.FORMATTER) + '}';
+    }
+
+    @Override
+    public Item clone() throws CloneNotSupportedException {
+        return (Item) super.clone();
     }
 }
