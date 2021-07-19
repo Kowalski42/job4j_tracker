@@ -16,7 +16,8 @@ public class FunctionInDiapasonTest {
 
     @Test
     public void whenQuadraticFunctionThenParabola() {
-        List<Double> result = FunctionInDiapason.diapason(5, 8, x -> 2 * Math.pow(x, 2) + 5 * x + 1);
+        List<Double> result = FunctionInDiapason.diapason(5, 8,
+                x -> 2 * Math.pow(x, 2) + 5 * x + 1);
         List<Double> expected = Arrays.asList(76D, 103D, 134D);
         assertThat(result, is(expected));
     }
