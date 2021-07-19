@@ -23,10 +23,10 @@ public class ProfilesTest {
         );
         List<Address> rsl = new Profiles().collect(profiles);
         List<Address> temp = List.of(
-                new Address("Moscow", "Arbat", 10, 185),
-                new Address("Smolensk", "Lenina", 45, 5),
                 new Address("Kursk", "Kulibina", 7, 38),
+                new Address("Moscow", "Arbat", 10, 185),
                 new Address("Moscow", "Dubravnaya", 40, 343),
+                new Address("Smolensk", "Lenina", 45, 5),
                 new Address("Smolensk", "Chernyahovskogo", 1, 71)
         );
         assertThat(rsl, is(temp));
