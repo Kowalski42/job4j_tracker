@@ -8,7 +8,7 @@ public class RefMethod {
         List<String> names = Arrays.asList(
                 "Ivan",
                 "Petr Arsentev");
-        Consumer<String> out = RefMethod :: cutOut;
+        Consumer<String> out = RefMethod::cutOut;
         names.forEach(out);
     }
 
