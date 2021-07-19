@@ -10,12 +10,22 @@ import static org.junit.Assert.*;
 
 public class PhoneDictionaryTest {
     @Test
-    public void whenFindByName() {
+    public void whenFindByPhone() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         ArrayList<Person> persons = phones.find("487");
+        assertThat(persons.get(0).getSurname(), is("Arsentev"));
+    }
+
+    @Test
+    public void whenFindByTown() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("rya");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
