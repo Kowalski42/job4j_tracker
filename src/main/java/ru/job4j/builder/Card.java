@@ -10,70 +10,6 @@ public class Card {
     private String user;
     private long balance;
 
-    public long getNumber() {
-        return number;
-    }
-
-    public void setNumber(long number) {
-        this.number = number;
-    }
-
-    public String getBank() {
-        return bank;
-    }
-
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
-
-    public String getPaymentSystem() {
-        return paymentSystem;
-    }
-
-    public void setPaymentSystem(String paymentSystem) {
-        this.paymentSystem = paymentSystem;
-    }
-
-    public int getDueMonth() {
-        return dueMonth;
-    }
-
-    public void setDueMonth(int dueMonth) {
-        this.dueMonth = dueMonth;
-    }
-
-    public int getDueYear() {
-        return dueYear;
-    }
-
-    public void setDueYear(int dueYear) {
-        this.dueYear = dueYear;
-    }
-
-    public int getCvc() {
-        return cvc;
-    }
-
-    public void setCvc(int cvc) {
-        this.cvc = cvc;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(long balance) {
-        this.balance = balance;
-    }
-
     @Override
     public String toString() {
         return "Card{"
@@ -86,5 +22,69 @@ public class Card {
                 + ", user='" + user + '\''
                 + ", balance=" + balance
                 + '}';
+    }
+
+    static class Builder {
+        private long number;
+        private String bank;
+        private String paymentSystem;
+        private int dueMonth;
+        private int dueYear;
+        private int cvc;
+        private String user;
+        private long balance;
+
+       Builder buildNumber(long number) {
+            this.number = number;
+            return this;
+        }
+
+        Builder buildBank(String bank) {
+            this.bank = bank;
+            return this;
+        }
+
+        Builder buildPaymentSystem(String paymentSystem) {
+            this.paymentSystem = paymentSystem;
+            return this;
+        }
+
+        Builder buildDueMonth(int dueMonth) {
+            this.dueMonth = dueMonth;
+            return this;
+        }
+
+        Builder buildDueYear(int dueYear) {
+            this.dueYear = dueYear;
+            return this;
+        }
+
+        Builder buildCvc(int cvc) {
+            this.cvc = cvc;
+            return this;
+        }
+
+        Builder buildUser(String user) {
+            this.user = user;
+            return this;
+        }
+
+        Builder buildBalance(long balance) {
+            this.balance = balance;
+            return this;
+        }
+
+        public Card build() {
+            Card card = new Card();
+            card.number = number;
+            card.bank = bank;
+            card.paymentSystem = paymentSystem;
+            card.dueMonth = dueMonth;
+            card.dueYear = dueYear;
+            card.cvc = cvc;
+            card.user = user;
+            card.balance = balance;
+            return card;
+        }
     }
 }

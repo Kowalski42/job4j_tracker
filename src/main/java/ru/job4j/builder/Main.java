@@ -1,5 +1,7 @@
 package ru.job4j.builder;
 
+import ru.job4j.builder.Card.*;
+
 public class Main {
     public static void main(String[] args) {
         Card card = new Builder().buildNumber(12365489L)
