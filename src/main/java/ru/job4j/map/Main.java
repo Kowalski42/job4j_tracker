@@ -11,9 +11,9 @@ public class Main {
                 )
         );
         College college = new College(students);
-        Student student = college.findByAccount("000001");
+        Student student = college.findByAccount("000001").get();
         System.out.println("Найденный студент: " + student);
-        Subject english = college.findBySubjectName("000001", "English");
+        Subject english = college.findBySubjectName("000001", "English").get();
         System.out.println("Оценка по найденному предмету: " + english.getScore());
     }
 }
