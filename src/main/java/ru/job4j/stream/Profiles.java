@@ -11,7 +11,7 @@ public class Profiles {
                 left.getAddress().getCity().compareTo(right.getAddress().getCity());
         List<Address> list = profiles.stream().sorted(comp)
                 .distinct()
-                .map(profile -> profile.getAddress())
+                .map(Profile::getAddress)
                 .collect(Collectors.toList());
         return list;
     }
