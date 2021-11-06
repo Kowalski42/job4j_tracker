@@ -14,7 +14,7 @@ public class HierarchyUsage {
         Car carFromObject = (Car) oCar;
         /* Ошибка в приведении типа. */
         Object bicycle = new Bicycle();
-        //Airplane cb = (Airplane) bicycle;
-        // код завершится с ошибок приведения типов ClassCastException
+        /* Airplane cb = (Airplane) bicycle; */
+        /* код завершится с ошибок приведения типов ClassCastException */
     }
 }
