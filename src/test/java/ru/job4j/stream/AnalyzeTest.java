@@ -51,9 +51,9 @@ public class AnalyzeTest {
                 Stream.of(
                         new Pupil("Ivanov",
                                 List.of(
+                                        new Subject("Math", 100),
                                         new Subject("Lang", 100),
-                                        new Subject("Philosophy", 100),
-                                        new Subject("Math", 100)
+                                        new Subject("Philosophy", 100)
                                 )
                         ),
                         new Pupil("Petrov",
@@ -66,8 +66,8 @@ public class AnalyzeTest {
                 )
         );
         assertThat(average, is(List.of(
-                new Tuple("Lang", 80),
                 new Tuple("Math", 80),
+                new Tuple("Lang", 80),
                 new Tuple("Philosophy", 80)
         )));
     }
